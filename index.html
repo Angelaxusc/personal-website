@@ -72,10 +72,14 @@
             <p>&copy;2025 by S.C. Angela XU</p>
         </footer>
         <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelector('.hamburger').addEventListener('click', function() {
-                document.getElementById('navlist').classList.toggle('mobile-active');
-            });
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.querySelector('.hamburger');
+            if (hamburger) {
+                hamburger.addEventListener('click', function () {
+                    const navlist = document.getElementById('navlist');
+                    navlist.classList.toggle('mobile-active');
+                });
+            }
         });
         </script>
     </body>
