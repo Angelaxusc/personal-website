@@ -15,12 +15,14 @@
         <nav id="navbar">
             <ul id="navlist">
                 <li class="nav-name"><a href="index.html"><span id="header-name">S.C. Angela XU</span></a></li>
-                <!-- Hamburger button (hidden on desktop) -->
-                 <button class="hamburger" aria-label="Menu">☰</button>
                 <li><a href="index.html" class="here">Home</a></li>
                 <li><a href="research.html">Research</a></li>
                 <li><a href="pdf/Xu_CV_20250523.pdf" target="_blank" class="external-link">CV</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <!-- Add hamburger as last list item -->
+                <li class="hamburger-li">
+                    <button class="hamburger" aria-label="Menu">☰</button>
+                </li>
             </ul>
         </nav>
 
@@ -70,8 +72,10 @@
             <p>&copy;2025 by S.C. Angela XU</p>
         </footer>
         <script>
-        document.querySelector('.hamburger').addEventListener('click', () => {
-            document.getElementById('navlist').classList.toggle('mobile-active');
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.hamburger').addEventListener('click', function() {
+                document.getElementById('navlist').classList.toggle('mobile-active');
+            });
         });
         </script>
     </body>

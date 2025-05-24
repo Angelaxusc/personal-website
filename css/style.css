@@ -145,7 +145,7 @@ a:hover{
     /* background-size: 700px;
     height: 195px; */
     background-size: cover;
-    /* min-height: 200px; */
+    min-height: 200px;
     height: 30vh;
     margin-bottom: 0px;
 }
@@ -265,31 +265,52 @@ a:hover{
 
 
 
-/* --- Mobile (<= 768px) --- */
+/* --- Mobile styles --- */
 @media (max-width: 768px) {
     body {
         background-attachment: scroll; /* Disable fixed on mobile */
         background-size: cover; /* Reaffirm for mobile */
     }
 
-    /* Hide regular nav links */
-    #navlist {
+    /* Hide regular nav items */
+    #navlist li:not(.nav-name):not(.hamburger-li) {
         display: none;
-        flex-direction: column;
-        width: 100%;
-        background: #444;
-        position: absolute;
-        top: 60px; /* Adjust based on navbar height */
-        left: 0;
     }
 
     /* Show hamburger */
-    .hamburger {
-        display: block;
+    .hamburger-li {
+        display: block !important;
+        margin-left: auto;
     }
 
-    /* Toggle class to show/hide (via JS) */
+    /* Style the hamburger button */
+    .hamburger {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    /* Show menu when active */
     #navlist.mobile-active {
-        display: flex;
+        flex-direction: column;
+        background: #444;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+    
+    #navlist.mobile-active li {
+        display: block !important;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    #navlist.mobile-active .hamburger-li {
+        display: none !important;
     }
 }
