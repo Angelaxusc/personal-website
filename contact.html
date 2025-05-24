@@ -54,5 +54,23 @@
         <footer id="footer">
             <p>&copy;2025 by S.C. Angela XU</p>
         </footer>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navlist = document.getElementById('navlist');
+            
+            hamburger.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent event bubbling
+                navlist.classList.toggle('mobile-active');
+            });
+            
+            // Close menu when clicking anywhere else
+            document.addEventListener('click', function(e) {
+                if (!navlist.contains(e.target)) {
+                    navlist.classList.remove('mobile-active');
+                }
+            });
+        });
+        </script>
     </body>
 </html>
