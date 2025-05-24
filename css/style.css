@@ -22,10 +22,12 @@ a:hover{
     color:#90b3ce;
 }
 
+
 .container{
     width: 80%;
-    margin: auto;
-    overflow: hidden;
+    margin: 0 auto;
+    overflow: visible; /* Changed from hidden */
+    padding: 10px 20px;
 }
 
 .clr{
@@ -41,16 +43,33 @@ a:hover{
     height: 95px;
 }
 
-#navbar{
+#navbar {
     background-color: #333;
     color: #f4f4f4;
     position: fixed;
-    top: 0px;
+    top: 0;
+    width: 100%;
+    padding: 5px 0; /* Adjust vertical padding as needed */
 }
 
-#navlist{
-    padding: 0;
-    display: table;
+/* Name on left */
+.nav-name {
+    margin-right: auto; /* Pushes everything else right */
+}
+
+/* Navigation links */
+#navlist li:not(.nav-name) {
+    margin-left: 10px; /* Space between links */
+}
+
+#navlist {
+    display: flex;
+    align-items: center; /* Vertically center items */
+    justify-content: space-between; /* Pushes name left, links right */
+    max-width: 1200px; /* Optional: constrain width */
+    margin: 0 auto;
+    padding: 0 20px;
+    list-style: none;
 }
 
 #header-name{
@@ -60,8 +79,8 @@ a:hover{
 }
 
 #navlist li{
-    display: table-cell;
-    padding-right: 10px;
+    display: inline-block;
+    padding: 15px 10px;
     white-space: nowrap;
 }
 
@@ -70,20 +89,28 @@ a:hover{
     padding-right: 0;
 }
 
-#navlist li.span-full
-{
-    width: 100%;
+#navlist li.span-full{
+    flex: 1 0 100%;
+    text-align: center;
+    padding-bottom: 5px;
 }
 
-#navlist a{
+
+/* Keep your existing link styles */
+#navlist a {
     color: #f4f4f4;
     text-decoration: none;
     font-size: 18px;
-    padding-right: 15px;
+    padding: 5px 5px; /* Adjust as needed */
 }
 
 #navlist a.here{
     font-weight: bold;
+}
+
+#navlist a:hover {
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 3px;
 }
 
 #footer{
@@ -96,6 +123,18 @@ a:hover{
 
 @media(max-width: 600px){
 
+}
+
+@media(max-width: 768px){
+    #navlist li:not(.span-full) {
+        padding: 10px 5px;
+    }
+    #navlist a {
+        font-size: 16px;
+    }
+    .container {
+        width: 95%;
+    }
 }
 
 /* index/main */
